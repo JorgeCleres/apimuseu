@@ -13,7 +13,12 @@ exports.CreatePdf = async (mensagens, emailClient) => {
             arraymsg[msg] = mensagens[msg].message
         }
 
-        pdf.list(arraymsg,{numbered: true})
+        //pdf.list(arraymsg,{numbered: true})
+
+        // Using a standard PDF font
+        pdf.font('Times-Roman')
+        .text('Hello from Times Roman!')
+        .moveDown(0.5);
 
         pdf.end();
 
