@@ -3,9 +3,9 @@ const cors = require('cors')
 
 const app = express()
 
-const index = require('./routes/index')
+//const index = require('./routes/index')
 
-const message = require('./routes/message.routes')
+const message = require('./routes/messageRoutes')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
