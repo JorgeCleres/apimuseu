@@ -58,7 +58,7 @@ exports.SendPdf = async(arraymsg, emailClient) => {
             from: 'jorge@empiric.com.br',
             to: emailClient,
             subject: 'Lista de confirmados',
-            html: `<h2>Lista de Mensagens0,</h2>
+            html: `<h2>Lista de Mensagens,</h2>
                     <ul>${arrayItems},</ul>`
         }
 
