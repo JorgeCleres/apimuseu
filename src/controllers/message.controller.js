@@ -16,7 +16,7 @@ exports.registerMessage = async(req, res) => {
     // }
     res.status(200).send({
         success: true,
-        message: 'register mesangem mensagem route'
+        message: 'register mesangem'
     })
 }
 
@@ -30,7 +30,7 @@ exports.getMessages = async(req, res) => {
     // }
     res.status(200).send({
         success: true,
-        message: 'get mensagem register mesangem mensagem route'
+        message: 'get mensagem'
     })
 }
 
@@ -46,6 +46,6 @@ exports.emailMessage = async(req, res) => {
     // }
     res.status(200).send({
         success: true,
-        message: 'Email register mesangem mensagem route'
+        message: 'Email'
     })
 }
