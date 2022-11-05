@@ -13,6 +13,6 @@ app.use(cors())
 
 app.use('', index)
 
-app.use('', message)
+app.use('/msg', message)
 
 module.exports = app

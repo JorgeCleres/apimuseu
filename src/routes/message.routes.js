@@ -8,7 +8,7 @@ const router = express.Router()
 
 // router.get('/getmessage', messageController.getMessages)
 
-router.get('/api2', (req, res) => {
+router.get('/message', (req, res) => {
     res.status(200).send({
         success: true,
         message: 'usando routes msg'
