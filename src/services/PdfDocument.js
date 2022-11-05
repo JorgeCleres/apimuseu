@@ -5,23 +5,17 @@ const Nodemailer = require('../services/Nodemailer')
 exports.CreatePdf = async (mensagens, emailClient) => {
 
     try {
-        // const pdf = new PDFDocument();
+        const pdf = new PDFDocument();
         let arraymsg = []
-        // pdf.pipe(fs.createWriteStream('msg.pdf'))
+        pdf.pipe(fs.createWriteStream('msg.pdf'))
 
         for(msg in mensagens) {
             arraymsg[msg] = mensagens[msg].message
         }
 
-        //pdf.list(arraymsg,{numbered: true})
+        pdf.list(arraymsg,{numbered: true})
 
-        // Using a standard PDF font
-        // pdf.font('Times-Roman')
-        // .text('Hello from Times Roman!')
-        // .moveDown(0.5);
-
-        //pdf.end();
-        //console.log(arraymsg);
+        pdf.end();
 
         await Nodemailer.SendPdf(arraymsg, emailClient)
     } catch {
