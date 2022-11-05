@@ -1,5 +1,5 @@
 const Message = require('../model/messageModel')
-//const PdfDocument = require('../services/PdfDocument')
+const PdfDocument = require('../services/PdfDocument')
 
 exports.registerMessage = async(req, res) => {
     try {
