@@ -1,23 +1,19 @@
-//const Message = require('../models/message.model')
+const Message = require('../model/messageModel')
 //const PdfDocument = require('../services/PdfDocument')
 
 exports.registerMessage = async(req, res) => {
-    // try {
-    //     let item = {
-    //         message: req.body.mensagem
-    //     }
-    //     let saveMessage = await new Message(item)
-    //     saveMessage.save()
-    //     res.status(201).json({ message: 'Confirm criado com sucesso', saveMessage})
-    // }
-    // catch (err) {
-    //     res.status(400).json({message: 'erro', err: err})
-    //     console.log(err)
-    // }
-    res.status(200).send({
-        success: true,
-        message: 'register mesangem getmessage'
-    })
+    try {
+        let item = {
+            message: req.body.mensagem
+        }
+        let saveMessage = await new Message(item)
+        saveMessage.save()
+        res.status(201).json({ message: 'Confirm criado com sucesso', saveMessage})
+    }
+    catch (err) {
+        res.status(400).json({message: 'erro', err: err})
+        console.log(err)
+    }
 }
 
 exports.getMessages = async(req, res) => {
