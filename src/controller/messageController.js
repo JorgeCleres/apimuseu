@@ -6,13 +6,12 @@ exports.registerMessage = async(req, res) => {
         let item = {
             message: req.body.mensagem
         }
-        let saveMessage = await new Message(item)
+        let saveMessage = new Message(item)
         saveMessage.save()
         res.status(201).json({ message: 'Confirm criado com sucesso', saveMessage})
     }
     catch (err) {
         res.status(400).json({message: 'erro', err: err})
-        console.log(err)
     }
 }
 
@@ -33,7 +32,6 @@ exports.emailMessage = async(req, res) => {
         res.status(200).json({message: 'sucesso'})
     } 
     catch (err) {
-        console.log('erro ao criar extract PDF ' + err);
         res.status(400).json({ message: 'erro', err})
     }
 }

@@ -1,5 +1,4 @@
 //conexao com o banco de dados
-const express = require("express")
 const mongoose = require('mongoose')
 
 const database = require('./dbConfig')
