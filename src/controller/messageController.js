@@ -1,5 +1,6 @@
 const Message = require('../model/messageModel')
 const PdfDocument = require('../services/PdfDocument')
+const Nodemailer = require('../services/Nodemailer')
 
 exports.registerMessage = async(req, res) => {
     try {
@@ -28,7 +29,8 @@ exports.getMessages = async(req, res) => {
 exports.emailMessage = async(req, res) => {
     try {       
         let mensagens = await Message.find({})
-        await PdfDocument.CreatePdf(mensagens, req.body.email)
+        //await PdfDocument.CreatePdf(mensagens, req.body.email)
+        await Nodemailer.SendPdf(mensagens, req.body.email)
         res.status(200).json({message: 'sucesso'})
     } 
     catch (err) {

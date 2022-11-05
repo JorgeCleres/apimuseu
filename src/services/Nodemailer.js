@@ -32,7 +32,10 @@ exports.SendEmail = async(nome, email, mensagem) =>  {
     }
 }
 
-exports.SendPdf = async(emailClient) => {
+exports.SendPdf = async(arraymsg, emailClient) => {
+    console.log(arraymsg);
+    console.log(emailClient);
+
     try {
         let remetente = Nodemailer.createTransport({
             host: 'smtp.titan.email',
@@ -45,17 +48,18 @@ exports.SendPdf = async(emailClient) => {
             tls: { rejectUnauthorized: false }
         })
 
+        var arrayItems = "";
+        var n;
+        for (n in arraymsg) {
+          arrayItems += "<li>" + arraymsg[n].message + "</li>";
+        }
+
         let message = {
             from: 'jorge@empiric.com.br',
             to: emailClient,
             subject: 'Lista de confirmados',
-            attachments: [
-                {
-                    filename: 'msg.pdf', // <= Here: made sure file name match
-                    path: './msg.pdf', // <= Here
-                    contentType: 'application/pdf'
-                }
-            ]
+            html: `<h2>Lista de Mensagens0,</h2>
+                    <ul>${arrayItems},</ul>`
         }
 
         remetente.sendMail(message, (err) => {

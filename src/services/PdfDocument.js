@@ -5,9 +5,9 @@ const Nodemailer = require('../services/Nodemailer')
 exports.CreatePdf = async (mensagens, emailClient) => {
 
     try {
-        const pdf = new PDFDocument();
+        // const pdf = new PDFDocument();
         let arraymsg = []
-        pdf.pipe(fs.createWriteStream('msg.pdf'))
+        // pdf.pipe(fs.createWriteStream('msg.pdf'))
 
         for(msg in mensagens) {
             arraymsg[msg] = mensagens[msg].message
@@ -16,13 +16,14 @@ exports.CreatePdf = async (mensagens, emailClient) => {
         //pdf.list(arraymsg,{numbered: true})
 
         // Using a standard PDF font
-        pdf.font('Times-Roman')
-        .text('Hello from Times Roman!')
-        .moveDown(0.5);
+        // pdf.font('Times-Roman')
+        // .text('Hello from Times Roman!')
+        // .moveDown(0.5);
 
-        pdf.end();
+        //pdf.end();
+        //console.log(arraymsg);
 
-        await Nodemailer.SendPdf(emailClient)
+        await Nodemailer.SendPdf(arraymsg, emailClient)
     } catch {
         console.log('erro ao gerar PDF2');
     }
