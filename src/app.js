@@ -5,7 +5,7 @@ const app = express()
 
 const index = require('./routes/index')
 
-const message = require('./routes/message')
+const message = require('./routes/message.routes')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
