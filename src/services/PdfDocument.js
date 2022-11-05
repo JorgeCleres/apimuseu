@@ -1,6 +1,6 @@
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
-const Nodemailer = require('../services/nodemailer')
+const Nodemailer = require('../services/Nodemailer')
 
 exports.CreatePdf = async (mensagens, emailClient) => {
 
