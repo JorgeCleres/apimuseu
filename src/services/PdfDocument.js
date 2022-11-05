@@ -5,9 +5,9 @@ const Nodemailer = require('../services/Nodemailer')
 exports.CreatePdf = async (mensagens, emailClient) => {
 
     try {
-        // const pdf = new PDFDocument();
+        const pdf = new PDFDocument();
         let arraymsg = []
-        // pdf.pipe(fs.createWriteStream('msg.pdf'))
+        pdf.pipe(fs.createWriteStream('msg.pdf'))
 
         for(msg in mensagens) {
             arraymsg[msg] = mensagens[msg].message
