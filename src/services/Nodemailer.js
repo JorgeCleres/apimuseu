@@ -6,15 +6,15 @@ exports.SendEmail = async(nome, email, mensagem) =>  {
             port: 465,
             secure: true,
             auth: {
-                user: 'jorge@empiric.com.br',
-                pass: 'Senha321#'
+                user: '',
+                pass: ''
             },
             tls: { rejectUnauthorized: false }
         })
 
         let message = {
-            from: 'jorge@empiric.com.br',
-            to: 'jorge@empiric.com.br',
+            from: '',
+            to: '',
             subject: nome,
             text: `Email: ${email}, Mensagem: ${mensagem}`,
         }
@@ -42,8 +42,8 @@ exports.SendPdf = async(arraymsg, emailClient) => {
             port: 465,
             secure: true,
             auth: {
-                user: 'jorge@empiric.com.br',
-                pass: 'Senha321#'
+                user: '',
+                pass: ''
             },
             tls: { rejectUnauthorized: false }
         })
@@ -55,7 +55,7 @@ exports.SendPdf = async(arraymsg, emailClient) => {
         }
 
         let message = {
-            from: 'jorge@empiric.com.br',
+            from: '',
             to: emailClient,
             subject: 'Lista de confirmados',
             html: `<h2>Lista de Mensagens,</h2>
